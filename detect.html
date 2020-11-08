@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Emotion Detector</title>
+<script src="./js/ml5.min.js"></script>
+<script src="./js/ai.js"></script>
+<script src="./js/tf.min.js"></script>
+<script src="./js/tfjs-vis.min.js"></script>
+</head>
+<body>
+<table style="border: 1px black solid; margin-bottom: 10px;border-spacing: 5px;" align="center" >
+<tr>
+<td align="center">
+<button id="toggleCapture" onclick="toggleCamera()">Start Capture</button>
+</td>
+<td align="center">
+<button id="toggleDetect" onclick="toggleDetect()">Start Detection</button>
+</td>
+<td align="center">
+<button id="predict" onclick="predict()">Start Prediction</button>
+</td>
+<td align="center">
+<label>Import Model [ via Name ]: </label>
+<input type="text" size="15" id='modelName'></input>
+&nbsp;&nbsp;<button onclick='importModel()'>Import</button>
+</td>
+</tr>
+</table>
+<table style="border: 2px black solid; border-spacing: 5px;" align="center">
+<tr>
+<th align="center">
+Input Stream
+</th>
+<th align="center">
+Last Detected Face    
+</th>
+</tr>
+<tr><td align="center">
+<video id="srcId"></video>
+</td>
+<td align="center">
+<canvas id="faceCanvas"></canvas>
+<canvas id="hiddenCanvas" style="display: none;"></canvas>
+</td>
+</tr>
+</table>
+<table align="center" style="margin-top: 10px; border: 2px black solid;">
+<tr>
+<th align="center">
+<canvas id='predictionCanvas' width="50" height="50"></canvas>    
+</th>
+<th align="center">
+DETECTED EMOTION 
+</th>  
+</tr>
+<tr>
+<td align="center">
+<span id="emotion" style="font-weight: bolder;font-size: large;"></span>
+</td>
+</tr>
+</table>
+</body>
+</html>

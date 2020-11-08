@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>CNN Trainer</title>
+<script src="./js/ml5.min.js"></script>
+<script src="./js/ai.js"></script>
+<script src="./js/tf.min.js"></script>
+<script src="./js/tfjs-vis.min.js"></script>
+</head>
+<body>
+<table style="border: 1px black solid; margin-bottom: 10px;border-spacing: 5px;" align="center" >
+<tr>
+<td align="center">
+<button id="toggleCapture" onclick="toggleCamera()">Start Capture</button>
+</td>
+<td align="center">
+<button id="toggleDetect" onclick="toggleDetect()">Start Detect Face</button>
+</td>
+<td align="center">
+<button id="train" onclick="startTraining()">Start Training</button>
+<span id="trainStatus"></span>
+</td>
+<td align="center">
+    <button id="download" onclick="downloadModel()">Download Model</button>
+</td>
+<td align="center">
+    <label>Emotion to Train: </label>
+    <span>Happy</span><input type="radio" id="happy" name="emotion" checked></input>
+    <span>Sad</span><input type="radio" id="sad" name="emotion"></input>
+    <span>Neutral</span><input type="radio" id="neutral" name="emotion"></input>
+    &nbsp;&nbsp;
+    <label>Capture Freq (Sec): </label>
+    <span>0.5</span><input type="radio" id="oneSecFreq" name="freq" checked></input>
+    <span>1</span><input type="radio" id="twoSecFreq" name="freq"></input>
+    <span>2</span><input type="radio" id="threeSecFreq" name="freq"></input>
+    &nbsp;&nbsp;
+    <button id="trainingSet" onclick="toggleTrainingSet()">Create Training Set</button>
+</td>
+<td align="center">
+    <label>Import Model</label>
+    <input type="text" size="15" id='modelName'></input>
+    &nbsp;&nbsp;<button onclick='importModel()'>Import</button>
+</td>
+</tr>
+</table>
+<table style="border: 2px black solid; border-spacing: 5px;" align="center">
+<tr>
+<th align="center">
+Input Stream
+</th>
+<th align="center">
+Last Detected Face    
+</th>
+</tr>
+<tr><td align="center">
+<video id="srcId"></video>
+</td>
+<td align="center">
+<canvas id="faceCanvas"></canvas>
+<canvas id="hiddenCanvas" style="display: none;"></canvas>
+</td>
+</tr>
+</table>
+<table align="center" style="margin-top: 10px; border: 2px black solid;">
+<tr>
+<th align="center">
+Current Training Set  [ Count: <span id="tCount">0</span> ]
+</th>  
+</tr>
+<tr>
+<td align="center">
+<div id="trainingContainer"></div>
+</td>
+</tr>
+</table>
+<br/><br/>
+<a href="detect.html">Go To Detector . . .</a>
+</body>
+</html>
